@@ -1,0 +1,4 @@
+C:/Users/Akalanka/CLionProjects/Lab4_140019E_140/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+C:/Users/Akalanka/CLionProjects/Lab4_140019E_140/cmake-build-debug/CMakeFiles/openmp_test_clion.dir
+C:/Users/Akalanka/CLionProjects/Lab4_140019E_140/cmake-build-debug/CMakeFiles/Lab4_140019E_140.dir
+C:/Users/Akalanka/CLionProjects/Lab4_140019E_140/cmake-build-debug/CMakeFiles/edit_cache.dir
