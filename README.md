@@ -33,11 +33,12 @@ g++ parallel.cpp matrixOp.cpp util.cpp -o parallel -fopenmp -std=c++11
 ##### Optimized implementation - tiled matrix multiplication
 ```bash
 g++ optimized_method_3.cpp matrixOp.cpp util.cpp -o optimized_3 -O2 -fopenmp -std=c++11
+```
 
 ##### Optimized implementation - transpose
 ```bash
 g++ optimized_code_2.cpp matrixOp.cpp util.cpp -o optimized_2 -O2 -fopenmp -std=c++11
-
+```
 ##### Optimized implementation - OpenMp scheduling
 ```bash
 g++ optimized_code.cpp matrixOp.cpp util.cpp -o optimized_1 -O2 -fopenmp -std=c++11
