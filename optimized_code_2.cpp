@@ -78,32 +78,10 @@ double optimized_method_2(int size,double **matrix1, double **matrix2, double **
     timer_start();
     //below line will take care of parallel execution of the for loop. this was provided by openmp
     //refernce https://blogs.msdn.microsoft.com/xiangfan/2009/04/28/optimize-your-code-matrix-multiplication/
-    int blockSize = 64;
-    int ii,jj,kk,j,k;
-#pragma omp parallel num_threads(NUMBER_OF_THREADS) shared(matrix1,matrix2,result_matrix,blockSize) private(ii,jj,kk,j,k)
-    {
-#pragma omp for schedule(static)
+    for (int i = 0; i < size; ++i) {
+        for (int j = 0; j < size; ++j) {
+            result_matrix[i][j] += matrix1[j][i] * matrix2[j][i];
 
-        for(int ii=0; ii<size; ii += blockSize){
-            for(int jj=0; jj<size; jj += blockSize){
-                for(int kk=0; kk<size; kk += blockSize){
-                    for (int i = ii; i < min(ii+blockSize, size); ++i) {
-                        for (int j = jj; j < min(jj+blockSize, size); ++j) {
-                            for (int k = kk; k < min(kk+blockSize, size); k+=8) {
-                                result_matrix[i][j] +=
-                                        + matrix1[i][k]*matrix2[j][k]
-                                        + matrix1[i][k+1]*matrix2[j][k+1]
-                                        + matrix1[i][k+2]*matrix2[j][k+2]
-                                        + matrix1[i][k+3]*matrix2[j][k+3]
-                                        + matrix1[i][k+4]*matrix2[j][k+4]
-                                        + matrix1[i][k+5]*matrix2[j][k+5]
-                                        + matrix1[i][k+6]*matrix2[j][k+6]
-                                        + matrix1[i][k+7]*matrix2[j][k+7];
-                            }
-                        }
-                    }
-                }
-            }
         }
     }
     timer_stop();

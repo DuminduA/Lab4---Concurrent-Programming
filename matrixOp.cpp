@@ -11,7 +11,7 @@
 double **initialize_matrix(int size){
     auto **matrix = new double *[size];
 
-    for (int i = 0; i < size; ++i) {
+    for (int i = 0; i < size; i++) {
         matrix[i] = new double[size];
     }
 
@@ -20,10 +20,10 @@ double **initialize_matrix(int size){
 
 //populate random values to the matrix
 void populate_matrix(int size, double **matrix){
-    srand((unsigned int) (time(nullptr)));
+//    srand((unsigned int) 100 * (time(0)));
     for (int i = 0; i < size; i++) {
         for (int j = 0; j < size; j++) {
-            matrix[i][j] = (rand() % 100) + 1;
+            matrix[i][j] = (rand() % 90) + 10;
         }
     }
 }
@@ -50,4 +50,17 @@ double **transpose(double **matrix,double **transposed, int size) {
         }
     }
     return transposed;
+}
+
+void reduce_to_One_dimention(int n, double *reduced_matrix, double **matrix) {
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n; j++) {
+            reduced_matrix[i * n + j] = matrix[i][j];
+        }
+    }
+}
+
+double *oneDimention_matrix(int n) {
+    auto *mat = new double[n * n];
+    return mat;
 }

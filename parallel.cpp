@@ -71,7 +71,7 @@ double run_parallely(int size,double **matrix1, double **matrix2, double **resul
         for (int j = 0; j < size; ++j) {
             result_matrix[i][j] = 0;
             for (int k = 0; k < size; ++k) {
-                result_matrix[i][j] += matrix1[i][k] * matrix2[k][i];
+                result_matrix[i][j] += matrix1[i][k] * matrix2[k][j];
             }
         }
     }

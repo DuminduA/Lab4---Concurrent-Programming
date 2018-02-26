@@ -52,30 +52,6 @@ void calculate_time(int n, int size) {
         populate_matrix(n, mat1);
         populate_matrix(n, mat2);
         time_taken[i] = run_sequencially(n, mat1, mat2, mat_res);
-
-        for (int j = 0; j < n; ++j) {
-            for (int k = 0; k < n; ++k) {
-                cout<< mat1[j][k];
-                cout << " ";
-            }
-            cout << "\n";
-        }
-        cout<<"\n";
-        for (int j = 0; j < n; ++j) {
-            for (int k = 0; k < n; ++k) {
-                cout<< mat2[j][k];
-                cout << " ";
-            }
-            cout << "\n";
-        }
-        cout<<"\n";
-        for (int j = 0; j < n; ++j) {
-            for (int k = 0; k < n; ++k) {
-                cout<< mat_res[j][k];
-                cout << " ";
-            }
-            cout << "\n";
-        }
     }
 
 
@@ -93,7 +69,7 @@ double run_sequencially(int size,double **matrix1, double **matrix2, double **re
         for (int j = 0; j < size; ++j) {
             result_matrix[i][j] = 0;
             for (int k = 0; k < size; ++k) {
-                result_matrix[i][j] += matrix1[i][k] * matrix2[k][i];
+                result_matrix[i][j] += matrix1[i][k] * matrix2[k][j];
             }
         }
     }
